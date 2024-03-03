@@ -5,8 +5,29 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.Random;
+
 public class Registration_Test {
-    public static final String baseUrl = "https://tutorialsninja.com/demo/index.php";
+    private static final String baseUrl = "https://tutorialsninja.com/demo/index.php";
+
+    // Function to generate a random email address
+    private static String randomEmail() {
+        String allowedChars = "abcdefghijklmnopqrstuvwxyz1234567890";
+        StringBuilder email = new StringBuilder();
+        Random random = new Random();
+
+        // Generate a random username
+        for (int i = 0; i < 10; i++) {
+            int randomIndex = random.nextInt(allowedChars.length());
+            email.append(allowedChars.charAt(randomIndex));
+        }
+
+        // Append a domain name
+        email.append("@gmail.com");
+
+        return email.toString();
+    }
+
 
     public static void main(String[] args) {
         WebDriver driver = new ChromeDriver();
@@ -24,7 +45,7 @@ public class Registration_Test {
 
         firstName.sendKeys("Test first name");
         lastName.sendKeys("Test last name");
-        email.sendKeys("demo123@demomail.com");
+        email.sendKeys(randomEmail());
         telephone.sendKeys("123456");
         password.sendKeys("123456");
         confirmPassword.sendKeys("123456");
