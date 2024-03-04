@@ -12,20 +12,35 @@ public class Login_Test {
 
     private static final String baseUrl = "https://tutorialsninja.com/demo/index.php";
 
+    private static WebDriver driver;
+
     public static void main(String[] args) throws IOException {
-        WebDriver driver = new ChromeDriver();
+        initializeWebDriver();
+        loginUser();
+        tearDown();
+    }
+    private static void initializeWebDriver() {
+        driver = new ChromeDriver();
         driver.manage().window().maximize();  // maximize window size
+    }
+    private static void loginUser() throws IOException {
         driver.get(baseUrl +"?route=account/login"); // navigate to login page
 
         WebElement email = driver.findElement(By.cssSelector("#input-email"));
         WebElement password = driver.findElement(By.cssSelector("#input-password"));
         WebElement loginButton = driver.findElement(By.cssSelector("input[type=\"submit\"].btn.btn-primary"));
 
-        email.sendKeys(Common.getTextFromFile("src/main/java/TN_Automation/users.txt"));
+        email.sendKeys(Common.getTextFromFile("src/test/java/TN_Automation/users.txt"));
         password.sendKeys("123456");
         loginButton.click();
-
-        driver.quit();
+    }
+    private static void tearDown() {
+        if(driver != null){
+            driver.quit();
+        }
+        else{
+            System.out.println("No Driver found.");
+        }
 
     }
 }
