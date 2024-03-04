@@ -1,14 +1,17 @@
-package TN_Automation;
+package JunitTest;
 
 
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
 import java.io.IOException;
 
 public class LoginTest extends BaseTest {
     private static final String baseUrl = "https://tutorialsninja.com/demo/index.php";
 
-    public static void main(String[] args) throws IOException {
+    @Test
+    public void LoginTestValid() throws IOException {
         initializeWebDriver();
         loginUser();
         tearDown();
