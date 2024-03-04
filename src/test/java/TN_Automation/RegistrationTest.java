@@ -1,29 +1,20 @@
 package TN_Automation;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-
 import java.io.IOException;
 
 
-public class Registration_Test {
+public class RegistrationTest extends BaseTest {
     private static final String baseUrl = "https://tutorialsninja.com/demo/index.php";
     private static final String newEmail = Common.randomEmail();
-    private static WebDriver driver;
-
 
     public static void main(String[] args) throws IOException {
         initializeWebDriver();
         registerUser();
         tearDown();
     }
-    private static void initializeWebDriver() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();  // maximize window size
-    }
+
     private static void registerUser() throws IOException {
         try{
             driver.get(baseUrl +"?route=account/register"); // navigate to register page
@@ -50,15 +41,4 @@ public class Registration_Test {
             System.out.println("Exception: "+ e.getMessage());
         }
     }
-
-    private static void tearDown() {
-        if(driver != null){
-            driver.quit();
-        }
-        else{
-            System.out.println("No Driver found.");
-        }
-
-    }
-
 }
