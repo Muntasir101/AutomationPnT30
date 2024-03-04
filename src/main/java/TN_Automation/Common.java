@@ -30,21 +30,11 @@ public class Common {
             throw e; // Rethrow the exception to be handled by the caller
         }
     }
-    public static String readFile(String filePath) throws IOException {
-        StringBuilder fileContent = new StringBuilder();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            // Read each line of the file until the end is reached
-            while ((line = reader.readLine()) != null) {
-                // Append each line to the StringBuilder
-                fileContent.append(line).append("\n");
-            }
-        } catch (Exception e) {
-            System.out.println("Exception is: " + e);
-        }
-
-        // Return the content of the file as a string
-        return fileContent.toString();
+    public static String getTextFromFile(String filePath) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(filePath));
+        String line = reader.readLine();
+        reader.close();
+        return line;
     }
 }

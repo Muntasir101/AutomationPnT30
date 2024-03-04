@@ -21,7 +21,7 @@ public class Login_Test {
         WebElement password = driver.findElement(By.cssSelector("#input-password"));
         WebElement loginButton = driver.findElement(By.cssSelector("input[type=\"submit\"].btn.btn-primary"));
 
-        email.sendKeys("");
+        email.sendKeys(Common.getTextFromFile("src/main/java/TN_Automation/users.txt"));
         password.sendKeys("123456");
         loginButton.click();
 
