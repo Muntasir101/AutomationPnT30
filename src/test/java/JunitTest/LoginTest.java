@@ -12,12 +12,36 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void LoginTestValid() throws IOException {
+        /*
+        Valid Test Suite
+         */
         initializeWebDriver();
-        loginUser();
+        loginTestCase01();
+        tearDown();
+    }
+    @Test
+    public void LoginTestInValid() throws IOException {
+        /*
+         InValid Test Suite
+         */
+        initializeWebDriver();
+        loginTestCase02();
+        tearDown();
+
+        initializeWebDriver();
+        loginTestCase03();
+        tearDown();
+
+        initializeWebDriver();
+        loginTestCase04();
         tearDown();
     }
 
-    private static void loginUser() throws IOException {
+
+    private static void loginTestCase01() throws IOException {
+        /*
+        This is valid Test Case
+         */
         driver.get(baseUrl +"?route=account/login"); // navigate to login page
 
         WebElement email = driver.findElement(By.cssSelector("#input-email"));
@@ -26,6 +50,51 @@ public class LoginTest extends BaseTest {
 
         email.sendKeys(Common.getTextFromFile("src/test/java/TN_Automation/users.txt"));
         password.sendKeys("123456");
+        loginButton.click();
+    }
+    private static void loginTestCase02() throws IOException {
+        /*
+        This is invalid Test Case.
+        Email is Invalid but password valid
+         */
+        driver.get(baseUrl +"?route=account/login"); // navigate to login page
+
+        WebElement email = driver.findElement(By.cssSelector("#input-email"));
+        WebElement password = driver.findElement(By.cssSelector("#input-password"));
+        WebElement loginButton = driver.findElement(By.cssSelector("input[type=\"submit\"].btn.btn-primary"));
+
+        email.sendKeys("invalidEmail@gmail.com"); // invalid Email
+        password.sendKeys("123456"); // valid password
+        loginButton.click();
+    }
+    private static void loginTestCase03() throws IOException {
+        /*
+        This is invalid Test Case.
+        Email is valid but password invalid
+         */
+        driver.get(baseUrl +"?route=account/login"); // navigate to login page
+
+        WebElement email = driver.findElement(By.cssSelector("#input-email"));
+        WebElement password = driver.findElement(By.cssSelector("#input-password"));
+        WebElement loginButton = driver.findElement(By.cssSelector("input[type=\"submit\"].btn.btn-primary"));
+
+        email.sendKeys(Common.getTextFromFile("src/test/java/TN_Automation/users.txt")); // email valid
+        password.sendKeys("1111"); // password invalid
+        loginButton.click();
+    }
+    private static void loginTestCase04() throws IOException {
+        /*
+        This is invalid Test Case.
+        Email is Invalid and password invalid
+         */
+        driver.get(baseUrl +"?route=account/login"); // navigate to login page
+
+        WebElement email = driver.findElement(By.cssSelector("#input-email"));
+        WebElement password = driver.findElement(By.cssSelector("#input-password"));
+        WebElement loginButton = driver.findElement(By.cssSelector("input[type=\"submit\"].btn.btn-primary"));
+
+        email.sendKeys("mail.com"); // invalid email
+        password.sendKeys("1"); // invalid password
         loginButton.click();
     }
 
