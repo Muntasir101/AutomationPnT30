@@ -38,7 +38,11 @@ public class CreateAccountTest extends BaseTest {
 
 
         email.sendKeys("test@mail.com");
+        Thread.sleep(2000);
+        password.click();
         password.sendKeys("if^z*{0-5P&6");
+        Thread.sleep(2000);
+        reTypePassword.click();
         reTypePassword.sendKeys("if^z*{0-5P&6");
 
         Select objSelect = new Select(countryDropDown);
@@ -46,6 +50,10 @@ public class CreateAccountTest extends BaseTest {
         System.out.println("Total Country: " + countyCount.size());
         // verify country count
         Assert.assertEquals(243, countyCount.size());
+        //Select County: Australia
+        objSelect.selectByVisibleText("Australia");
+
+
 
     }
 }
