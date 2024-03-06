@@ -46,13 +46,20 @@ public class CreateAccountTest extends BaseTest {
         reTypePassword.sendKeys("if^z*{0-5P&6");
 
         Select objSelect = new Select(countryDropDown);
-        List<WebElement> countyCount = objSelect.getOptions();
-        System.out.println("Total Country: " + countyCount.size());
+        List<WebElement> countries = objSelect.getOptions();
+        System.out.println("Total Country: " + countries.size());
         // verify country count
-        Assert.assertEquals(243, countyCount.size());
+        Assert.assertEquals(243, countries.size());
         //Select County: Australia
         objSelect.selectByVisibleText("Australia");
 
+        /*
+         Print All Country
+         System.out.println("All Country: ");
+          for(WebElement country : countries){
+             System.out.println(country.getText());
+        }
+         */
 
 
     }
