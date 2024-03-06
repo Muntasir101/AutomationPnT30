@@ -36,6 +36,8 @@ public class LoginTest extends BaseTest {
         initializeWebDriver();
         loginTestCase04();
         tearDown();
+
+
     }
 
 
@@ -77,6 +79,13 @@ public class LoginTest extends BaseTest {
         email.sendKeys("invalidEmail@gmail.com"); // invalid Email
         password.sendKeys("123456"); // valid password
         loginButton.click();
+
+        //verification by invalid email warning
+        WebElement invalidEmailWarning = driver.findElement(By.cssSelector(".alert-dismissible"));
+        String invalidEmailWarningText = invalidEmailWarning.getText();
+        Assert.assertEquals("Warning: No match for E-Mail Address and/or Password.",invalidEmailWarningText);
+
+
     }
     private static void loginTestCase03() throws IOException {
         /*
@@ -92,6 +101,12 @@ public class LoginTest extends BaseTest {
         email.sendKeys(Common.getTextFromFile("src/test/java/TN_Automation/users.txt")); // email valid
         password.sendKeys("1111"); // password invalid
         loginButton.click();
+
+        //verification by invalid email warning
+        WebElement invalidEmailWarning = driver.findElement(By.cssSelector(".alert-dismissible"));
+        String invalidEmailWarningText = invalidEmailWarning.getText();
+        Assert.assertEquals("Warning: No match for E-Mail Address and/or Password.",invalidEmailWarningText);
+
     }
     private static void loginTestCase04() throws IOException {
         /*
@@ -107,6 +122,12 @@ public class LoginTest extends BaseTest {
         email.sendKeys("mail.com"); // invalid email
         password.sendKeys("1"); // invalid password
         loginButton.click();
+
+
+        //verification by invalid email warning
+        WebElement invalidEmailWarning = driver.findElement(By.cssSelector(".alert-dismissible"));
+        String invalidEmailWarningText = invalidEmailWarning.getText();
+        Assert.assertEquals("Warning: No match for E-Mail Address and/or Password.",invalidEmailWarningText);
     }
 
 }
