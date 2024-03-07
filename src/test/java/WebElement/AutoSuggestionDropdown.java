@@ -14,11 +14,11 @@ public class AutoSuggestionDropdown extends BaseTest {
     private static final String baseUrl = "https://www.shohoz.com/bus-tickets";
 
     @Test
-    public void autoSuggestionTest(){
+    public void autoSuggestionTest() throws InterruptedException {
         initializeWebDriver();
         busTicketSearch();
     }
-    public static void busTicketSearch(){
+    public static void busTicketSearch() throws InterruptedException {
         driver.get(baseUrl); // navigate to  page
 
         WebElement fromLocation = driver.findElement(By.cssSelector("input#dest_from"));
@@ -43,8 +43,52 @@ public class AutoSuggestionDropdown extends BaseTest {
         wait2.until(ExpectedConditions.visibilityOfElementLocated((By.linkText("Tangail"))));
 
         // Select the desired suggestion (for example, the first one)
-        WebElement destinationSuggestion = driver.findElement(By.linkText("Tangail"));
-        destinationSuggestion.click();
+        WebElement toSuggestion = driver.findElement(By.linkText("Tangail"));
+        toSuggestion.click();
+
+        WebElement dateOfJourney = driver.findElement(By.cssSelector("#doj"));
+        dateOfJourney.click();
+        WebElement nextMonth1 = driver.findElement(By.cssSelector(".ui-icon.ui-icon-circle-triangle-e"));
+        nextMonth1.click();
+        Thread.sleep(2000);
+        WebElement nextMonth2 = driver.findElement(By.cssSelector(".ui-icon.ui-icon-circle-triangle-e"));
+        nextMonth2.click();
+
+        WebElement chosenDOJ = driver.findElement(By.linkText("4"));
+        chosenDOJ.click();
+
+        WebElement dateOfReturn = driver.findElement(By.cssSelector("#dor"));
+        dateOfReturn.click();
+        WebElement nextMonth3 = driver.findElement(By.cssSelector(".ui-icon.ui-icon-circle-triangle-e"));
+        nextMonth3.click();
+        WebElement nextMonth4 = driver.findElement(By.cssSelector(".ui-icon.ui-icon-circle-triangle-e"));
+        nextMonth4.click();
+
+        WebElement chosenDOR = driver.findElement(By.linkText("5"));
+        chosenDOR.click();
+
+        WebElement search = driver.findElement(By.cssSelector("button[type='submit']"));
+        search.click();
+
+
+
+
+
+
+
+
+
+
+        //WebElement dateOfReturn = driver.findElement(By.cssSelector("#dor"));
+        //WebElement nextMonth2 = driver.findElement(By.cssSelector(".ui-icon.ui-icon-circle-triangle-e"));
+
+/*
+        WebElement fromDate = driver.findElement(By.cssSelector());
+        .click();
+        .click();
+*/
+
+
 
 
     }
