@@ -15,7 +15,7 @@ public class ImplicitWait extends BaseTest {
 
 
     @Test
-    public void autoSuggestionTest() throws InterruptedException {
+    public void implicitWaitTest() throws InterruptedException {
         initializeWebDriver();
         busTicketSearch();
     }
