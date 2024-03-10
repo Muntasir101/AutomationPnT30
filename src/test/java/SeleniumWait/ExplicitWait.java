@@ -47,7 +47,7 @@ public class ExplicitWait extends BaseTest {
 
         WebElement nextMonth1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".ui-icon.ui-icon-circle-triangle-e")));
         nextMonth1.click();
-        Thread.sleep(2000);
+
         WebElement nextMonth2 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".ui-icon.ui-icon-circle-triangle-e")));
         nextMonth2.click();
 
