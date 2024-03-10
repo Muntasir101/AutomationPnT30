@@ -1,4 +1,4 @@
-package MouseEvenet;
+package MouseEvent;
 
 import TN_Automation.BaseTest;
 import org.junit.Test;
