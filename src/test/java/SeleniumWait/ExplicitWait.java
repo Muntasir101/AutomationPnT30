@@ -8,7 +8,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 public class ExplicitWait extends BaseTest {
     private static final String baseUrl = "https://www.shohoz.com/bus-tickets";
