@@ -34,7 +34,6 @@ public class PageAllLinks extends BaseTest {
                 //open link i new tab
                 JavascriptExecutor js = (JavascriptExecutor)driver;
                 js.executeScript("window.open(arguments[0])",linkUrl);
-                System.out.println("Title: "+driver.getTitle());
             }
         }
     }
