@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import java.io.IOException;
 
 
-public class RegistrationTest extends BaseTest {
+public class RegistrationTest extends JunitBaseTest {
     private static final String baseUrl = "https://tutorialsninja.com/demo/index.php";
     private static final String newEmail = Common.randomEmail();
 

@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
 
-public class LoginTest extends BaseTest {
+public class LoginTest extends JunitBaseTest {
     private static final String baseUrl = "https://tutorialsninja.com/demo/index.php";
 
     @Test

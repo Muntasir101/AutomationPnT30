@@ -3,7 +3,7 @@ package JunitTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class BaseTest {
+public class JunitBaseTest {
     protected static WebDriver driver;
 
     protected static void initializeWebDriver() {
