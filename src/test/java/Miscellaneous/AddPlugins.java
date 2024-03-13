@@ -13,7 +13,7 @@ public class AddPlugins {
     public void addPluginsTest(){
        // To add a Packed extension
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addExtensions(new File("src/test/Files/ToDoIst.crx"));
+        chromeOptions.addExtensions(new File("src/test/Plugins/ToDoIst.crx"));
         ChromeDriver driver = new ChromeDriver(chromeOptions);
     }
 }
