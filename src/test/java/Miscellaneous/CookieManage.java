@@ -28,6 +28,22 @@ public class CookieManage {
             System.out.println(cookie.getName() + ": " + cookie.getValue());
         }
 
+        driver.manage().deleteCookieNamed("currency");
+        Set<Cookie> cookies2 = driver.manage().getCookies();
+        System.out.println("Total Cookies after Delete one: " + cookies2.size());
+        System.out.println("Cookies:");
+        for (Cookie cookie : cookies2) {
+            System.out.println(cookie.getName() + ": " + cookie.getValue());
+        }
+
+        driver.manage().deleteAllCookies();
+        Set<Cookie> cookies3 = driver.manage().getCookies();
+        System.out.println("Total Cookies after Delete all: " + cookies3.size());
+        System.out.println("Cookies:");
+        for (Cookie cookie : cookies3) {
+            System.out.println(cookie.getName() + ": " + cookie.getValue());
+        }
+
     }
 
 }
