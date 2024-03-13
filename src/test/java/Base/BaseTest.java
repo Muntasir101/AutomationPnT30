@@ -1,8 +1,13 @@
-package TN_Automation;
+package Base;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import java.io.File;
+import java.io.IOException;
 
 public class BaseTest {
     protected static WebDriver driver;
@@ -19,5 +24,10 @@ public class BaseTest {
         else{
             System.out.println("No Driver found.");
         }
+    }
+
+    protected static void captureScreenshot(String screenShotName) throws IOException {
+        File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(srcFile, new File("src/test/Screenshots/"+screenShotName+".png"),true);
     }
 }

@@ -1,6 +1,6 @@
 package Miscellaneous;
 
-import TN_Automation.BaseTest;
+import Base.BaseTest;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

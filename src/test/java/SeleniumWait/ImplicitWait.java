@@ -1,14 +1,11 @@
 package SeleniumWait;
 
-import TN_Automation.BaseTest;
+import Base.BaseTest;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import java.util.concurrent.TimeUnit;
 
-import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 public class ImplicitWait extends BaseTest {
     private static final String baseUrl = "https://www.shohoz.com/bus-tickets";

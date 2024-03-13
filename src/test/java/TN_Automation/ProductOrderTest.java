@@ -1,5 +1,6 @@
 package TN_Automation;
 
+import Base.BaseTest;
 import org.junit.Test;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -8,7 +9,7 @@ import org.openqa.selenium.WebElement;
 
 import java.time.Duration;
 
-public class ProductOrderTest extends BaseTest{
+public class ProductOrderTest extends BaseTest {
     private static final String baseUrl = "https://tutorialsninja.com/demo/index.php";
 
     @Test
