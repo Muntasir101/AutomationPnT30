@@ -1,4 +1,4 @@
-package TN_Automation;
+package TutorialNinja;
 
 import java.io.*;
 import java.util.Random;

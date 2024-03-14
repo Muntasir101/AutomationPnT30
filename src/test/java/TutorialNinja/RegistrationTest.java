@@ -1,4 +1,4 @@
-package TN_Automation;
+package TutorialNinja;
 
 import Base.BaseTest;
 import org.openqa.selenium.By;

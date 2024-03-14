@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.Random;
 
 public class BD_Signup extends BaseTest {
     private static final String baseUrl = "https://www.demoblaze.com/index.html";
@@ -18,6 +19,7 @@ public class BD_Signup extends BaseTest {
     public void signupTest(){
         initializeWebDriver();
         userSignup();
+        tearDown();
     }
     public static void userSignup(){
         driver.get(baseUrl);
@@ -31,7 +33,7 @@ public class BD_Signup extends BaseTest {
         // inside modal, locate username and password
         WebElement usernameInput = signupModal.findElement(By.id("sign-username"));
         usernameInput.clear();
-        usernameInput.sendKeys("test");
+        usernameInput.sendKeys(randomUsername());
 
         WebElement passwordInput = signupModal.findElement(By.id("sign-password"));
         passwordInput.clear();
@@ -41,4 +43,17 @@ public class BD_Signup extends BaseTest {
         signupButton.click();
 
     }
+    private static String randomUsername() {
+        String allowedChars = "abcdefghijklmnopqrstuvwxyz1234567890";
+        StringBuilder username = new StringBuilder();
+        Random random = new Random();
+
+        // Generate a random username
+        for (int i = 0; i < 10; i++) {
+            int randomIndex = random.nextInt(allowedChars.length());
+            username.append(allowedChars.charAt(randomIndex));
+        }
+        return username.toString();
+    }
+
 }
