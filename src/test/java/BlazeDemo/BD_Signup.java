@@ -1,9 +1,13 @@
 package BlazeDemo;
 
 import Base.BaseTest;
+import org.junit.Assert;
 import org.junit.Test;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -15,11 +19,13 @@ public class BD_Signup extends BaseTest {
     // Explicit wait
     static WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
+    static Alert alert;
+
     @Test
     public void signupTest(){
         initializeWebDriver();
         userSignup();
-        tearDown();
+        //tearDown();
     }
     public static void userSignup(){
         driver.get(baseUrl);
@@ -42,6 +48,17 @@ public class BD_Signup extends BaseTest {
         WebElement signupButton = signupModal.findElement(By.cssSelector("div#signInModal > div[role='document'] .btn.btn-primary"));
         signupButton.click();
 
+        // verify new user created by success message
+
+        String successMessage = handleAlert(driver,alert);
+        try {
+            Assert.assertEquals(successMessage, "Sign up successful.");
+            System.out.println("New user create success.");
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+
     }
     private static String randomUsername() {
         String allowedChars = "abcdefghijklmnopqrstuvwxyz1234567890";
@@ -54,6 +71,15 @@ public class BD_Signup extends BaseTest {
             username.append(allowedChars.charAt(randomIndex));
         }
         return username.toString();
+    }
+
+    private static String handleAlert(WebDriver driver, Alert alert){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.alertIsPresent());
+        alert = driver.switchTo().alert();
+        String alertTxt = alert.getText();
+        alert.accept();
+        return alertTxt;
     }
 
 }
