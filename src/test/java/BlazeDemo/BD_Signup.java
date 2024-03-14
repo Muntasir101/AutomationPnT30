@@ -1,17 +1,19 @@
 package BlazeDemo;
 
 import Base.BaseTest;
+import TutorialNinja.Common;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.IOException;
 import java.time.Duration;
-import java.util.Random;
+
+import static BlazeDemo.BD_Common.handleAlert;
+import static BlazeDemo.BD_Common.randomUsername;
 
 public class BD_Signup extends BaseTest {
     private static final String baseUrl = "https://www.demoblaze.com/index.html";
@@ -22,12 +24,12 @@ public class BD_Signup extends BaseTest {
     static Alert alert;
 
     @Test
-    public void signupTest(){
+    public void signupTest() throws IOException {
         initializeWebDriver();
         userSignup();
-        //tearDown();
+        tearDown();
     }
-    public static void userSignup(){
+    public static void userSignup() throws IOException {
         driver.get(baseUrl);
 
         WebElement signupMenu = driver.findElement(By.linkText("Sign up"));
@@ -40,6 +42,7 @@ public class BD_Signup extends BaseTest {
         WebElement usernameInput = signupModal.findElement(By.id("sign-username"));
         usernameInput.clear();
         usernameInput.sendKeys(randomUsername());
+        Common.writeFile("src/test/java/BlazeDemo/bd_users.txt",randomUsername());
 
         WebElement passwordInput = signupModal.findElement(By.id("sign-password"));
         passwordInput.clear();
@@ -59,27 +62,6 @@ public class BD_Signup extends BaseTest {
             System.out.println(e.getMessage());
         }
 
-    }
-    private static String randomUsername() {
-        String allowedChars = "abcdefghijklmnopqrstuvwxyz1234567890";
-        StringBuilder username = new StringBuilder();
-        Random random = new Random();
-
-        // Generate a random username
-        for (int i = 0; i < 10; i++) {
-            int randomIndex = random.nextInt(allowedChars.length());
-            username.append(allowedChars.charAt(randomIndex));
-        }
-        return username.toString();
-    }
-
-    private static String handleAlert(WebDriver driver, Alert alert){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.alertIsPresent());
-        alert = driver.switchTo().alert();
-        String alertTxt = alert.getText();
-        alert.accept();
-        return alertTxt;
     }
 
 }
