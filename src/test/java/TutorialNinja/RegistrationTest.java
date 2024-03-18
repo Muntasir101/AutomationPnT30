@@ -31,7 +31,7 @@ public class RegistrationTest extends BaseTest {
             firstName.sendKeys("Test first name");
             lastName.sendKeys("Test last name");
             email.sendKeys(newEmail);
-            Common.writeFile("src/test/java/TN_Automation/users.txt",newEmail);
+            Common.writeFile("src/test/java/TutorialNinja/users.txt",newEmail);
             telephone.sendKeys("123456");
             password.sendKeys("123456");
             confirmPassword.sendKeys("123456");
