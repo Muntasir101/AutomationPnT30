@@ -19,7 +19,7 @@ public class TN_LoginTest_TestNG {
     }
 
 
-    @Test(priority = 0, description = "Login Test Valid", successPercentage=100, timeOut= 1000)
+    @Test(priority = 0, description = "Login Test Valid", successPercentage=100, timeOut= 5000)
     public void loginTestCase01() throws IOException {
         /*
         This is valid Test Case

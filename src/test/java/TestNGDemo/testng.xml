@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="TN_Suite" verbose="1">
+    <test name="Registration-Login">
+        <classes>
+            <class name="TestNGDemo.RegistrationTest_TestNG"/>
+            <class name="TestNGDemo.TN_LoginTest_TestNG"/>
+        </classes>
+    </test>
+
+</suite>
