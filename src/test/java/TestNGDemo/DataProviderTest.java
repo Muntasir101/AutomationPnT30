@@ -11,7 +11,7 @@ import org.testng.annotations.*;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
+
 
 
 public class DataProviderTest {
@@ -68,7 +68,7 @@ public class DataProviderTest {
 
         // Add screenshot to Report
         String screenShotPath = "Screenshots/DataProviderLoginTest.png";
-        Reporter.log("<a href='" + screenShotPath + "'>View Screenshot</a>");
+        Reporter.log("<a href='" + screenShotPath + "' target ='_blank' >View Screenshot</a>");
 
         // Add image in report in small size
         Reporter.log("<img src ='"+ screenShotPath + "' width='200' height = '150' />");
@@ -84,11 +84,9 @@ public class DataProviderTest {
     public void terminateTest(){
         if(driver != null){
             driver.quit();
-            System.out.println("Test Complete");
             Reporter.log("Test Complete");
         }
         else{
-            System.out.println("No Driver found.");
             Reporter.log("No Driver found.");
         }
     }
