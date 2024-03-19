@@ -4,21 +4,21 @@
     <test name="Registration on Chrome">
         <parameter name="browserName" value="Chrome"></parameter>
         <classes>
-            <class name="TestNGDemo.CrossBrowserTest"/>
+            <class name="TestNGDemo.TN_Registration_CrossBrowser"/>
         </classes>
     </test>
 
     <test name="Registration on Firefox">
         <parameter name="browserName" value="firefox"></parameter>
         <classes>
-            <class name="TestNGDemo.CrossBrowserTest"/>
+            <class name="TestNGDemo.TN_Registration_CrossBrowser"/>
         </classes>
     </test>
 
     <test name="Registration on Edge">
         <parameter name="browserName" value="edge"></parameter>
         <classes>
-            <class name="TestNGDemo.CrossBrowserTest"/>
+            <class name="TestNGDemo.TN_Registration_CrossBrowser"/>
         </classes>
     </test>
 

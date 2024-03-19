@@ -14,7 +14,7 @@ import java.io.IOException;
 
 
 
-public class DataProviderTest {
+public class TN_LoginTest_DP {
     private static final String baseUrl = "https://tutorialsninja.com/demo/index.php";
     static WebDriver driver;
 

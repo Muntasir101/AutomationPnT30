@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class CrossBrowserTest {
+public class TN_Registration_CrossBrowser {
     WebDriver driver;
 
 
