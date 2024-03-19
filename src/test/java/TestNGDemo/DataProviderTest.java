@@ -1,20 +1,22 @@
 package TestNGDemo;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.*;
+
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 
 
 public class DataProviderTest {
     private static final String baseUrl = "https://tutorialsninja.com/demo/index.php";
-    WebDriver driver;
+    static WebDriver driver;
 
     @BeforeMethod
     @Parameters("browserName")
@@ -60,7 +62,13 @@ public class DataProviderTest {
         WebElement LogoutLink = driver.findElement(By.cssSelector(".list-group .list-group-item:nth-of-type(13)"));
         String LogoutText = LogoutLink.getText();
         Reporter.log("Verification by Logout Text: "+ LogoutText);
-        // Assert.assertEquals("Logout",LogoutText);
+        //Capture screenshot
+        captureScreenshot("DataProviderLoginTest");
+
+
+        // Add screenshot to Report
+        String screenShotPath = "Screenshots/DataProviderLoginTest.png";
+        Reporter.log("<a href='" + screenShotPath + "'>View Screenshot</a>");
 
         // verification by URL
         String ExpectedAccountPageUrl = baseUrl +"?route=account/account";
@@ -87,6 +95,10 @@ public class DataProviderTest {
                 {"mail123@gmail.com", "123456"},
                 {"y07e0ctih4@gmail.com", "123456"}
         };
+    }
+    protected static void captureScreenshot(String screenShotName) throws IOException {
+        File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(srcFile, new File("test-output/Screenshots/"+screenShotName+".png"),true);
     }
 
 }
