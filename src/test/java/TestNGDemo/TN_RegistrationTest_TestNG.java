@@ -1,6 +1,5 @@
 package TestNGDemo;
 
-import Base.BaseTest;
 import TutorialNinja.Common;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -11,7 +10,7 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 
 
-public class RegistrationTest_TestNG extends BaseTest_For_TestNG {
+public class TN_RegistrationTest_TestNG extends BaseTest_For_TestNG {
     private static final String baseUrl = "https://tutorialsninja.com/demo/index.php";
     private static final String newEmail = Common.randomEmail();
 
