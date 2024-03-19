@@ -52,9 +52,9 @@ public class DataProviderTest {
         WebElement loginButton = driver.findElement(By.cssSelector("input[type=\"submit\"].btn.btn-primary"));
 
         email.sendKeys(dp_email);
-        Reporter.log("Enter Email");
+        Reporter.log("Enter Email: " + dp_email);
         password.sendKeys(dp_password);
-        Reporter.log("Enter Password");
+        Reporter.log("Enter Password: "+ dp_password);
         loginButton.click();
         Reporter.log("Login Button Clicked");
 
@@ -69,6 +69,9 @@ public class DataProviderTest {
         // Add screenshot to Report
         String screenShotPath = "Screenshots/DataProviderLoginTest.png";
         Reporter.log("<a href='" + screenShotPath + "'>View Screenshot</a>");
+
+        // Add image in report in small size
+        Reporter.log("<img src ='"+ screenShotPath + "' width='200' height = '150' />");
 
         // verification by URL
         String ExpectedAccountPageUrl = baseUrl +"?route=account/account";
