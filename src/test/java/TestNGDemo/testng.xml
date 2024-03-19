@@ -1,26 +1,11 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 
 <suite name="TN_Suite" parallel="classes" verbose="1">
-    <test name="Registration on Chrome">
-        <parameter name="browserName" value="Chrome"></parameter>
-        <classes>
-            <class name="TestNGDemo.TN_LoginTest_DP"/>
-        </classes>
-    </test>
-
     <test name="Registration on Firefox">
         <parameter name="browserName" value="firefox"></parameter>
         <classes>
-            <class name="TestNGDemo.TN_LoginTest_DP"/>
+            <class name="TestNGDemo.TN_ProductSearch_DP"/>
         </classes>
     </test>
-
-    <test name="Registration on Edge">
-        <parameter name="browserName" value="edge"></parameter>
-        <classes>
-            <class name="TestNGDemo.TN_LoginTest_DP"/>
-        </classes>
-    </test>
-
 
 </suite>

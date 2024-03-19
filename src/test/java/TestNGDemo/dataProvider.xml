@@ -4,7 +4,7 @@
     <test name="Login on Chrome">
         <parameter name="browserName" value="Chrome"></parameter>
         <classes>
-            <class name="TestNGDemo.TN_LoginTest_DP"/>
+            <class name="TestNGDemo.TN_ProductSearch_DP"/>
         </classes>
     </test>
 
